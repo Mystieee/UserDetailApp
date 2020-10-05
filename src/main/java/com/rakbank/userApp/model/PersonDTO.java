@@ -1,4 +1,4 @@
-package com.rakbank.demo.model;
+package com.rakbank.userApp.model;
 
 public class PersonDTO {
     private Long id;

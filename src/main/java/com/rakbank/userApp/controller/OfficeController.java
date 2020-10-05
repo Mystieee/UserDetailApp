@@ -1,4 +1,4 @@
-package com.rakbank.demo.controller;
+package com.rakbank.userApp.controller;
 
 public class OfficeController {
 }
