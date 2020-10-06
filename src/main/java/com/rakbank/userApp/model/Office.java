@@ -10,11 +10,11 @@ public class Office {
     private Long id;
 
     @Column(nullable = false)
-    private String buildingName;
+    private String building_name;
 
     private String city;
-    private Integer landlineNumber;
-    private String addressLine1;
-    private String addressLine2;
-    private Integer POBoxNumber;
+    private String landline_number;
+    private String address_line1;
+    private String address_line2;
+    private Integer po_box_number;
 }

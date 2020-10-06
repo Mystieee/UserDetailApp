@@ -4,10 +4,10 @@ public class PersonDTO {
     private Long id;
     private String name;
     private String email;
-    private Integer mobileNumber;
-    private String addressLine1;
-    private String addressLine2;
-    private String addressLine3;
+    private String mobile_number;
+    private String address_line1;
+    private String address_line2;
+    private String address_line3;
 
     public Long getId() {
         return id;
@@ -33,35 +33,35 @@ public class PersonDTO {
         this.email = email;
     }
 
-    public Integer getMobileNumber() {
-        return mobileNumber;
+    public String getMobile_number() {
+        return mobile_number;
     }
 
-    public void setMobileNumber(Integer mobileNumber) {
-        this.mobileNumber = mobileNumber;
+    public void setMobile_number(String mobile_number) {
+        this.mobile_number = mobile_number;
     }
 
-    public String getAddressLine1() {
-        return addressLine1;
+    public String getAddress_line1() {
+        return address_line1;
     }
 
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
+    public void setAddress_line1(String address_line1) {
+        this.address_line1 = address_line1;
     }
 
-    public String getAddressLine2() {
-        return addressLine2;
+    public String getAddress_line2() {
+        return address_line2;
     }
 
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
+    public void setAddress_line2(String address_line2) {
+        this.address_line2 = address_line2;
     }
 
-    public String getAddressLine3() {
-        return addressLine3;
+    public String getAddress_line3() {
+        return address_line3;
     }
 
-    public void setAddressLine3(String addressLine3) {
-        this.addressLine3 = addressLine3;
+    public void setAddress_line3(String address_line3) {
+        this.address_line3 = address_line3;
     }
 }

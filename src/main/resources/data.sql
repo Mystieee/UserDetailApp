@@ -1,5 +1,8 @@
-insert into person
-values(10001,'Mahira', 'mahira@abc.com', 9999090099, '311, Burj Al Arab','DIFC','Dubai');
+INSERT INTO person ( id, name, email, mobile_number, address_line1, address_line2, address_line3)
+VALUES (1001,'Mahira', 'Tom@Erichsen.com', '090900000', 'Stavanger', '4006 gateway', 'Norway');
 
-insert into office
-values(10001, 'Twin Towers', 'Dubai', 04999999, 'Happyness Street 3','DIFC Dubai', 28090);
+INSERT INTO person ( id, name, email, mobile_number, address_line1, address_line2, address_line3)
+VALUES (1002,'Taylor', 'Tom@Erichsen.com', '090900000', 'Stavanger', '4006 gateway', 'Norway');
+
+INSERT INTO office ( id, building_name, city, landline_number, address_line1, address_line2, po_box_number)
+VALUES (1001,'Eiffel Tower', 'Paris', '0408989', 'Stavanger', '4006 gateway', 98900);

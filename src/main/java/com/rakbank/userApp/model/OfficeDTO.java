@@ -2,12 +2,12 @@ package com.rakbank.userApp.model;
 
 public class OfficeDTO {
     private Long id;
-    private String buildingName;
+    private String building_name;
     private String city;
-    private Integer landlineNumber;
-    private String addressLine1;
-    private String addressLine2;
-    private Integer POBoxNumber;
+    private String landline_number;
+    private String address_line1;
+    private String address_line2;
+    private Integer po_box_number;
 
     public Long getId() {
         return id;
@@ -17,12 +17,12 @@ public class OfficeDTO {
         this.id = id;
     }
 
-    public String getBuildingName() {
-        return buildingName;
+    public String getBuilding_name() {
+        return building_name;
     }
 
-    public void setBuildingName(String buildingName) {
-        this.buildingName = buildingName;
+    public void setBuilding_name(String building_name) {
+        this.building_name = building_name;
     }
 
     public String getCity() {
@@ -33,35 +33,35 @@ public class OfficeDTO {
         this.city = city;
     }
 
-    public Integer getLandlineNumber() {
-        return landlineNumber;
+    public String getLandline_number() {
+        return landline_number;
     }
 
-    public void setLandlineNumber(Integer landlineNumber) {
-        this.landlineNumber = landlineNumber;
+    public void setLandline_number(String landline_number) {
+        this.landline_number = landline_number;
     }
 
-    public String getAddressLine1() {
-        return addressLine1;
+    public String getAddress_line1() {
+        return address_line1;
     }
 
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
+    public void setAddress_line1(String address_line1) {
+        this.address_line1 = address_line1;
     }
 
-    public String getAddressLine2() {
-        return addressLine2;
+    public String getAddress_line2() {
+        return address_line2;
     }
 
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
+    public void setAddress_line2(String address_line2) {
+        this.address_line2 = address_line2;
     }
 
-    public Integer getPOBoxNumber() {
-        return POBoxNumber;
+    public Integer getPo_box_number() {
+        return po_box_number;
     }
 
-    public void setPOBoxNumber(Integer POBoxNumber) {
-        this.POBoxNumber = POBoxNumber;
+    public void setPo_box_number(Integer po_box_number) {
+        this.po_box_number = po_box_number;
     }
 }
