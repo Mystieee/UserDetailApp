@@ -81,7 +81,7 @@ export class PersonalInfo extends Component {
                 <br />
 
                 <div className="text-right">
-                    <button className="btn btn-primary" onClick={this.continue}>Continue</button>
+                    <button className="btn btn-primary" onClick={this.continue}>Next</button>
                 </div>
             </div>
         )
