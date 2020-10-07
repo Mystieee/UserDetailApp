@@ -7,7 +7,7 @@ public class OfficeDTO {
     private String landline_number;
     private String address_line1;
     private String address_line2;
-    private Integer po_box_number;
+    private String po_box_number;
 
     public Long getId() {
         return id;
@@ -57,11 +57,11 @@ public class OfficeDTO {
         this.address_line2 = address_line2;
     }
 
-    public Integer getPo_box_number() {
+    public String getPo_box_number() {
         return po_box_number;
     }
 
-    public void setPo_box_number(Integer po_box_number) {
+    public void setPo_box_number(String po_box_number) {
         this.po_box_number = po_box_number;
     }
 }
