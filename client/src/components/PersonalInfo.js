@@ -15,15 +15,12 @@ export class PersonalInfo extends Component {
         e.preventDefault();
         this.props.nextStep();
 
-         console.log(this.props.errors)
          if(validateForm(this.props.errors)) {
-            console.info('Valid Form')
+            console.info('Valid Personal Info Form')
           }else{
-            console.error('Invalid Form')
+            console.error('Invalid Personal Info Form')
           }
 
-
-            console.log('this.prop.values: ',this.props.values);
            const { name, email, mobile_number, address_line1, address_line2, address_line3 } = this.props.values;
            const userData = { name, email, mobile_number, address_line1, address_line2, address_line3 };
 
@@ -38,8 +35,6 @@ export class PersonalInfo extends Component {
                           console.log("error -->",error.response);
                       }
                   })
-
-
     };
 
     render() {

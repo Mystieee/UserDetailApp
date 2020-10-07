@@ -5,8 +5,8 @@ public class OfficeDTO {
     private String building_name;
     private String city;
     private String landline_number;
-    private String address_line1;
-    private String address_line2;
+    private String office_address_line1;
+    private String office_address_line2;
     private String po_box_number;
 
     public Long getId() {
@@ -41,20 +41,20 @@ public class OfficeDTO {
         this.landline_number = landline_number;
     }
 
-    public String getAddress_line1() {
-        return address_line1;
+    public String getOffice_address_line1() {
+        return office_address_line1;
     }
 
-    public void setAddress_line1(String address_line1) {
-        this.address_line1 = address_line1;
+    public void setOffice_address_line1(String office_address_line1) {
+        this.office_address_line1 = office_address_line1;
     }
 
-    public String getAddress_line2() {
-        return address_line2;
+    public String getOffice_address_line2() {
+        return office_address_line2;
     }
 
-    public void setAddress_line2(String address_line2) {
-        this.address_line2 = address_line2;
+    public void setOffice_address_line2(String office_address_line2) {
+        this.office_address_line2 = office_address_line2;
     }
 
     public String getPo_box_number() {

@@ -53,16 +53,16 @@ public class OfficeController {
             office.setLandline_number(officeDTO.getLandline_number());
         }
 
-        if (officeDTO.getAddress_line1() == null || officeDTO.getAddress_line1().isEmpty()) {
+        if (officeDTO.getOffice_address_line1() == null || officeDTO.getOffice_address_line1().isEmpty()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
-            office.setAddress_line1(officeDTO.getAddress_line1());
+            office.setOffice_address_line1(officeDTO.getOffice_address_line1());
         }
 
-        if (officeDTO.getAddress_line2() == null || officeDTO.getAddress_line2().isEmpty()) {
+        if (officeDTO.getOffice_address_line2() == null || officeDTO.getOffice_address_line2().isEmpty()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
-            office.setAddress_line2(officeDTO.getAddress_line2());
+            office.setOffice_address_line2(officeDTO.getOffice_address_line2());
         }
 
         if (officeDTO.getPo_box_number() == null || officeDTO.getPo_box_number().isEmpty()) {
