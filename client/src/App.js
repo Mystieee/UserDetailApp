@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import PersonalInfo from "./components/PersonalInfo.js"
+import Form from './components-new/Form';
 
 function App() {
   return (
     <div className="App">
-        <PersonalInfo />
+           <div className="container">
+                 <Form />
+           </div>
     </div>
   );
 }

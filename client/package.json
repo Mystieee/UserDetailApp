@@ -11,7 +11,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-form-stepper": "^1.2.10",
-    "react-scripts": "3.4.3"
+    "react-multistep": "^5.1.0",
+    "react-scripts": "3.4.3",
+    "react-step-builder": "^1.1.12"
   },
   "scripts": {
     "start": "react-scripts start",
