@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import  UploadFiles from './UploadFiles.js';
 
 export class ConfirmationPage extends Component {
     continue = e => {
@@ -35,12 +36,13 @@ export class ConfirmationPage extends Component {
 
                 <br /><br />
 
+                  <UploadFiles />
                 <div className="row">
                     <div className="col-6">
                         <button className="btn btn-danger" onClick={this.back}>Back</button>
                     </div>
                     <div className="col-6 text-right">
-                        <button className="btn btn-primary" onClick={this.continue}>Submit</button>
+                        <button className="btn btn-primary" onClick={this.continue}>Submit</button> //save photo and signature.
                     </div>
                 </div>
             </div>

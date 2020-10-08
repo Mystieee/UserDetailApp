@@ -85,9 +85,6 @@ export class OfficeInfo extends Component {
 
                 <br />
                  <div className="row">
-                    <div className="col-6">
-                        <button className="btn btn-danger" onClick={this.back}>Back</button>
-                    </div>
                     <div className="col-6 text-right">
                         <button className="btn btn-primary" onClick={this.continue}>Next</button>
                     </div>

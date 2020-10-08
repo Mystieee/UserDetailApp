@@ -49,6 +49,11 @@ export class Form extends Component {
         this.setState({ step: step - 1 });
     };
 
+    beginningStep = () => {
+        const { step } = this.state;
+        this.setState({ step: 1 });
+    };
+
     inputChange = input => e => {
 
         const { name, value } = e.target;
@@ -171,7 +176,7 @@ export class Form extends Component {
                 );
             case 4:
                 return (
-                    <RegistrationSuccess />
+                    <RegistrationSuccess beginningStep={this.beginningStep} />
                 );
         }
     }

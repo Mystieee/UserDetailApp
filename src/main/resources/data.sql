@@ -6,3 +6,6 @@ VALUES (1002,'Taylor', 'Tom@Erichsen.com', '090900000', 'Stavanger', '4006 gatew
 
 INSERT INTO office ( id, building_name, city, landline_number, office_address_line1, office_address_line2, po_box_number)
 VALUES (1001,'Eiffel Tower', 'Paris', '0408989', 'Stavanger', '4006 gateway', 98900);
+
+INSERT INTO FILES (id, name, type, data)
+VALUES (101, 'mahira', 'image',  FILE_READ('src/main/resources/images/burj.jpg'));
