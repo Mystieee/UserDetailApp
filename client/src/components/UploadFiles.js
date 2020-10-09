@@ -5,13 +5,12 @@ export default class UploadFiles extends Component {
   constructor(props) {
     super(props);
     this.selectFile = this.selectFile.bind(this);
-    this.upload = this.upload.bind(this);
 
     this.state = {
       selectedFiles: undefined,
       currentFile: undefined,
+      message:'',
       progress: 0,
-      message: "",
 
       fileInfos: [],
     };
@@ -30,49 +29,17 @@ export default class UploadFiles extends Component {
     this.setState({
       selectedFiles: event.target.files,
     });
-  }
+    console.log("this.state.selectedFile", event.target.files);
+     this.props.onSelectFile(event.target.files);
 
-  upload() {
-    let currentFile = this.state.selectedFiles[0];
-
-    console.log("current File: ",currentFile);
-
-    this.setState({
-      currentFile: currentFile,
-    });
-
-    console.log("Calling upload file service..");
-    UploadFileService.uploadFile(currentFile)
-      .then((response) => {
-        this.setState({
-          message: response.data.message,
-        });
-        return UploadFileService.getFiles();
-      })
-      .then((files) => {
-        console.log("I am in fileInfos..");
-        this.setState({
-          fileInfos: files.data,
-        });
-      })
-      .catch(() => {
-        this.setState({
-          message: "Could not upload the file!",
-          currentFile: undefined,
-        });
-      });
-
-    this.setState({
-      selectedFiles: undefined,
-    });
   }
 
   render() {
     const {
       selectedFiles,
       currentFile,
-      progress,
       message,
+      progress,
       fileInfos,
     } = this.state;
 
@@ -96,21 +63,7 @@ export default class UploadFiles extends Component {
         <label className="btn btn-default">
           <input type="file" onChange={this.selectFile} />
         </label>
-
-        <button
-          className="btn btn-success"
-          disabled={!selectedFiles}
-          onClick={this.upload}
-        >
-          Upload
-        </button>
-
-        <div className="alert alert-light" role="alert">
-          {message}
-        </div>
-
-
-      </div>
+    </div>
     );
   }
 }

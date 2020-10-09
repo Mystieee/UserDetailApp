@@ -1,10 +1,57 @@
 import React, { Component } from 'react'
 import  UploadFiles from './UploadFiles.js';
+import  Signature from './Signature.js';
+import UploadFileService from "../service/UploadFileService.js";
 
 export class ConfirmationPage extends Component {
+     constructor(props) {
+        super(props);
+        this.state = { selectedFiles: undefined,  currentFile: undefined,
+              message: ""
+            }
+    }
+    handleProfilePicture = (profilePicture) => {
+            this.setState({selectedFiles: profilePicture});
+        }
+
+
     continue = e => {
         e.preventDefault();
-        this.props.nextStep();
+
+
+    let currentFile = this.state.selectedFiles[0];
+
+    console.log("current File: ",currentFile);
+
+    this.setState({
+      currentFile: currentFile,
+    });
+
+    console.log("Calling upload file service..");
+    UploadFileService.uploadFile(currentFile)
+      .then((response) => {
+        this.setState({
+          message: response.data.message,
+        });
+        return UploadFileService.getFiles();
+      })
+      .then((files) => {
+        console.log("I am in fileInfos..");
+        this.setState({
+          fileInfos: files.data,
+        });
+      })
+      .catch(() => {
+        this.setState({
+          message: "Could not upload the file as the file size exceeds 2MB",
+          currentFile: undefined,
+        });
+      });
+
+    this.setState({
+      selectedFiles: undefined,
+    });
+
     };
 
     back = e => {
@@ -16,6 +63,9 @@ export class ConfirmationPage extends Component {
         const {
             values: { name, email, mobile_number, address_line1, address_line2, address_line3, city, building_name, landline_number, office_address_line1, office_address_line2, po_box_number }
         } = this.props;
+
+        const message = this.state.message;
+
         return (
             <div className="form-container">
                 <h1 className="mb-5">Confirmation Page</h1>
@@ -36,7 +86,13 @@ export class ConfirmationPage extends Component {
 
                 <br /><br />
 
-                  <UploadFiles />
+                  <UploadFiles  onSelectFile={this.handleProfilePicture} />
+                    <div className="alert alert-light" role="alert">
+                            {message}
+                          </div>
+
+                  <Signature />
+
                 <div className="row">
                     <div className="col-6">
                         <button className="btn btn-danger" onClick={this.back}>Back</button>
