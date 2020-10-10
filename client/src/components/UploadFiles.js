@@ -36,11 +36,8 @@ export default class UploadFiles extends Component {
 
   render() {
     const {
-      selectedFiles,
       currentFile,
-      message,
-      progress,
-      fileInfos,
+      progress
     } = this.state;
 
     return (
