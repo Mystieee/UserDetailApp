@@ -28,7 +28,6 @@ export class PersonalInfo extends Component {
             console.info('Valid Personal Info Form')
 
             this.setState({ errors_arr });
-            console.log("error_arr: ",errors_arr);
              const { name, email, mobile_number, address_line1, address_line2, address_line3 } = this.props.values;
                        const userData = { name, email, mobile_number, address_line1, address_line2, address_line3 };
 
@@ -51,7 +50,6 @@ export class PersonalInfo extends Component {
           }else{
             console.error('Invalid Personal Info Form')
 
-
             if(this.props.errors.name.length > 0){
                errors_arr.push(this.props.errors.name);
             }
@@ -71,15 +69,11 @@ export class PersonalInfo extends Component {
                   errors_arr.push(this.props.errors.address_line3);
             }
 
-            console.log(errors_arr);
-
             if(errors_arr.length > 0){
                 this.setState({ errors_arr });
             }
 
           }
-
-
     };
 
     render() {

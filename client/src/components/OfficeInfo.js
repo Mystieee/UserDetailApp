@@ -11,31 +11,66 @@ const validateForm = (errors) => {
 }
 
 export class OfficeInfo extends Component {
+    constructor() {
+           super();
+           this.state = {
+                errors_arr: []
+           };
+         }
+
     continue = e => {
         e.preventDefault();
-        this.props.nextStep();
 
-         console.log(this.props.errors)
+         const errors_arr = [];
+
          if(validateForm(this.props.errors)) {
             console.info('Valid Office Info Form')
+             this.setState({ errors_arr });
+              const { city, building_name, landline_number, office_address_line1, office_address_line2, po_box_number  } = this.props.values;
+                       const officeData = { city, building_name, landline_number, office_address_line1, office_address_line2, po_box_number  };
+
+                       OfficeService.addOfficeInfo(officeData)
+                          .then(response => {
+                                  response.json().then(data =>{
+                                    console.log("Successful" + data);
+                                  })
+                              })
+                          .catch((error) => {
+                                  if(error.response){
+                                      console.log("error -->",error.response);
+                                  }
+                              })
+               this.props.nextStep();
           }else{
             console.error('Invalid Office Info Form')
-          }
 
-           const { city, building_name, landline_number, office_address_line1, office_address_line2, po_box_number  } = this.props.values;
-           const officeData = { city, building_name, landline_number, office_address_line1, office_address_line2, po_box_number  };
+                if(this.props.errors.city.length > 0){
+                   errors_arr.push(this.props.errors.city);
+                }
+                if(this.props.errors.landline_number.length > 0){
+                   errors_arr.push(this.props.errors.landline_number);
+                }
+                if(this.props.errors.building_name.length > 0){
+                    errors_arr.push(this.props.errors.building_name);
+                }
+                if(this.props.errors.office_address_line1.length > 0){
+                    errors_arr.push(this.props.errors.office_address_line1);
+                }
+                if(this.props.errors.office_address_line2.length > 0){
+                     errors_arr.push(this.props.errors.office_address_line2);
+                }
+                if(this.props.errors.po_box_number.length > 0){
+                      errors_arr.push(this.props.errors.po_box_number);
+                }
 
-           OfficeService.addOfficeInfo(officeData)
-              .then(response => {
-                      response.json().then(data =>{
-                        console.log("Successful" + data);
-                      })
-                  })
-              .catch((error) => {
-                      if(error.response){
-                          console.log("error -->",error.response);
-                      }
-                  })
+                if(errors_arr.length > 0){
+                    this.setState({ errors_arr });
+                }
+
+            }
+
+
+
     };
 
     back = e => {
@@ -50,15 +85,11 @@ export class OfficeInfo extends Component {
             <div className="form-container">
                 <h1 className="mb-5">Office Info Page</h1>
 
-                {errors.building_name.length > 0 && <span className='error'>{errors.building_name}</span>}
-                {errors.city.length > 0 && <span className='error'>{errors.city}</span>}
-                {errors.landline_number.length > 0 && <span className='error'>{errors.landline_number}</span>}
-                {errors.office_address_line1.length > 0 && <span className='error'>{errors.office_address_line1}</span>}
-                {errors.office_address_line2.length > 0 && <span className='error'>{errors.office_address_line2}</span>}
-                {errors.po_box_number.length > 0 && <span className='error'>{errors.po_box_number}</span>}
-
                 <form className="form-horizontal">
 
+                    {this.state.errors_arr.map(err => (
+                          <p key={err} className="error-message" >{err}</p>
+                    ))}
                   <div className="form-group row">
                       <label htmlFor="building_name" className="control-label col-sm-4">Building Name</label>
                       <div class="col-sm-6">
