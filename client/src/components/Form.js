@@ -5,7 +5,7 @@ import ConfirmationPage from './ConfirmationPage';
 import RegistrationSuccess from './RegistrationSuccess';
 
 const validNumberRegex = RegExp('^[0-9]+$');
-const validEmailRegex = RegExp('^[a-zA-Z0-9]+@[a-zA-Z0-9]+.(w*com\\w*)$');
+const validEmailRegex = RegExp('^[a-zA-Z0-9.]+@[a-zA-Z0-9]+.(w*com\\w*)$');
 
 export class Form extends Component {
    state = {
@@ -61,6 +61,7 @@ export class Form extends Component {
 
         switch (name) {
                        case 'name':
+                       console.log('length of name field: ',value.length)
                          errors.name =
                            value.length < 5
                              ? 'Name must be 5 characters long.'
@@ -134,7 +135,9 @@ export class Form extends Component {
                          break;
                      }
 
-        this.setState({errors, [name]: value})
+        this.setState({errors, [name]: value}, ()=> {
+                                                   console.log(errors)
+                                               })
 
         this.setState({
             [input]: e.target.value

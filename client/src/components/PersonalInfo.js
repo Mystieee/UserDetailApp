@@ -11,12 +11,24 @@ const validateForm = (errors) => {
 }
 
 export class PersonalInfo extends Component {
+
+   constructor() {
+       super();
+       this.state = {
+            errors_arr: []
+       };
+     }
+
     continue = e => {
         e.preventDefault();
-        this.props.nextStep();
+
+         const errors_arr = [];
 
          if(validateForm(this.props.errors)) {
             console.info('Valid Personal Info Form')
+
+            this.setState({ errors_arr });
+            console.log("error_arr: ",errors_arr);
              const { name, email, mobile_number, address_line1, address_line2, address_line3 } = this.props.values;
                        const userData = { name, email, mobile_number, address_line1, address_line2, address_line3 };
 
@@ -24,6 +36,8 @@ export class PersonalInfo extends Component {
                           .then(response => {
                                   response.json().then(data =>{
                                     console.log("Successful" + data);
+
+                                    this.props.nextStep();
                                   })
                               })
                           .catch((error) => {
@@ -31,8 +45,38 @@ export class PersonalInfo extends Component {
                                       console.log("error -->",error.response);
                                   }
                               })
+
+             this.props.nextStep();
+
           }else{
             console.error('Invalid Personal Info Form')
+
+
+            if(this.props.errors.name.length > 0){
+               errors_arr.push(this.props.errors.name);
+            }
+            if(this.props.errors.email.length > 0){
+               errors_arr.push(this.props.errors.email);
+            }
+            if(this.props.errors.mobile_number.length > 0){
+                errors_arr.push(this.props.errors.mobile_number);
+            }
+            if(this.props.errors.address_line1.length > 0){
+                errors_arr.push(this.props.errors.address_line1);
+            }
+            if(this.props.errors.address_line2.length > 0){
+                 errors_arr.push(this.props.errors.address_line2);
+            }
+            if(this.props.errors.address_line3.length > 0){
+                  errors_arr.push(this.props.errors.address_line3);
+            }
+
+            console.log(errors_arr);
+
+            if(errors_arr.length > 0){
+                this.setState({ errors_arr });
+            }
+
           }
 
 
@@ -42,23 +86,20 @@ export class PersonalInfo extends Component {
         const { values, inputChange, errors } = this.props;
 
         return (
+
              <div className="form-container">
                 <h1 className="mb-5">Personal Info Page</h1>
 
-                    {errors.name.length > 0 && <span className='error'>{errors.name}</span>}
-                    {errors.email.length > 0 && <span className='error'>{errors.email}</span>}
-                    {errors.mobile_number.length > 0 && <span className='error'>{errors.mobile_number}</span>}
-                    {errors.address_line1.length > 0 && <span className='error'>{errors.address_line1}</span>}
-                    {errors.address_line2.length > 0 && <span className='error'>{errors.address_line2}</span>}
-                    {errors.address_line3.length > 0 && <span className='error'>{errors.address_line3}</span>}
-
               <form className="form-horizontal">
 
+                 {this.state.errors_arr.map(err => (
+                          <p key={err} className="error-message" >{err}</p>
+                        ))}
 
                     <div className="form-group row">
                         <label htmlFor="name" className="control-label col-sm-4">Name</label>
                          <div className="col-sm-6">
-                            <input type="text" className="form-control" name="name" onChange={inputChange('name')} value={values.name} />
+                            <input type="text" className="form-control" name="name" onChange={inputChange('name')} value={values.name}  />
                          </div>
                     </div>
                     <div className="form-group row">
