@@ -1,3 +1,54 @@
+
 .App {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  flex-direction: column;
+  background: #87CEFA;  /* fallback for old browsers */
+  }
+
+.form-container {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 15px 16px .17px rgba(0,0,0,0.05);
+}
+
+.form-horizontal{
+    border-style: dotted;
+    border-radius: 25px;
+    padding: 30px;
+    border-color : #C0C0C0;
+}
+
+h1 {
   text-align: center;
 }
+
+
+
+
+
+
+      #flex-container {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          width: 100%;
+          margin: 0 auto;
+          align-items: stretch;
+      }
+
+      .flex-item {
+          width: 100px;
+          flex-grow: 1;
+           text-align: justify;
+      }
+
+
+      ul {
+        list-style-type: none;
+      }

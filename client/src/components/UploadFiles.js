@@ -44,7 +44,7 @@ export default class UploadFiles extends Component {
     } = this.state;
 
     return (
-      <div>
+      <div className="form-horizontal">
         {currentFile && (
           <div className="progress">
             <div

@@ -5,6 +5,7 @@ class UploadFileService {
 
      uploadFile(file) {
 
+        console.log("From service: ", file);
          let formData = new FormData();
          formData.append("file", file);
          const config = {

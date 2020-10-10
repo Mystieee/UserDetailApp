@@ -4,7 +4,7 @@ import "../styles/signature.css";
 import trimCanvas from 'trim-canvas'
 
 function Signature() {
-    const sigCanvas = useRef({});
+      const sigCanvas = useRef({});
      const getTrimmedCanvas = () => {
         // copy the canvas
         let copy = document.createElement('canvas')
@@ -15,21 +15,17 @@ function Signature() {
         return trimCanvas(copy)
       }
     const uploadSignature=() =>{
-        console.log("sigCanvas", sigCanvas);
-        console.log("sigCanvas.getTrimmedCanvas: ", sigCanvas.current.getTrimmedCanvas());
         console.log(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
+        console.log("I am in button signature--------");
 
-        const sign = sigCanvas.current.getTrimmedCanvas().toDataURL("image/png");
     }
     return (
-        <div>
+        <div className="form-horizontal-canvas">
             <SignaturePad
                 ref={sigCanvas}
                 canvasProps={{
                     className:"signatureCanvas"
             }} />
-
-            <button onClick={uploadSignature}>Save</button>
         </div>
     )
 }

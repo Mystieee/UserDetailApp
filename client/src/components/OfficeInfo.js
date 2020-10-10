@@ -57,38 +57,51 @@ export class OfficeInfo extends Component {
                 {errors.office_address_line2.length > 0 && <span className='error'>{errors.office_address_line2}</span>}
                 {errors.po_box_number.length > 0 && <span className='error'>{errors.po_box_number}</span>}
 
-                  <div className="form-group">
-                      <label htmlFor="building_name">Building Name</label>
-                      <input type="text" className="form-control" name="building_name" onChange={inputChange('building_name')} value={values.building_name} />
-                  </div>
-                  <div className="form-group">
-                      <label htmlFor="city">City/Area</label>
-                      <input type="text" className="form-control" name="city" onChange={inputChange('city')} value={values.city} />
-                  </div>
-                  <div className="form-group">
-                      <label htmlFor="landline_number">Landline Number</label>
-                      <input type="text" className="form-control" name="landline_number" onChange={inputChange('landline_number')} value={values.landline_number} />
-                  </div>
-                  <div className="form-group">
-                      <label htmlFor="office_address_line1">Address Line 1</label>
-                      <input type="text" className="form-control" name="office_address_line1" onChange={inputChange('office_address_line1')} value={values.office_address_line1} />
-                  </div>
-                  <div className="form-group">
-                      <label htmlFor="office_address_line2">Address Line 2</label>
-                      <input type="text" className="form-control" name="office_address_line2" onChange={inputChange('office_address_line2')} value={values.office_address_line2} />
-                  </div>
-                  <div className="form-group">
-                      <label htmlFor="po_box_number">PO Box Number</label>
-                      <input type="text" className="form-control" name="po_box_number" onChange={inputChange('po_box_number')} value={values.po_box_number} />
-                  </div>
+                <form className="form-horizontal">
 
+                  <div className="form-group row">
+                      <label htmlFor="building_name" className="control-label col-sm-4">Building Name</label>
+                      <div class="col-sm-6">
+                        <input type="text" className="form-control" name="building_name" onChange={inputChange('building_name')} value={values.building_name} />
+                      </div>
+                  </div>
+                  <div className="form-group row">
+                      <label htmlFor="city" className="control-label col-sm-4">City/Area</label>
+                      <div class="col-sm-6">
+                        <input type="text" className="form-control" name="city" onChange={inputChange('city')} value={values.city} />
+                      </div>
+                  </div>
+                  <div className="form-group row">
+                      <label htmlFor="landline_number" className="control-label col-sm-4">Landline Number</label>
+                      <div class="col-sm-6">
+                        <input type="text" className="form-control" name="landline_number" onChange={inputChange('landline_number')} value={values.landline_number} />
+                      </div>
+                  </div>
+                  <div className="form-group row">
+                      <label htmlFor="office_address_line1" className="control-label col-sm-4">Address Line 1</label>
+                      <div class="col-sm-6">
+                         <input type="text" className="form-control" name="office_address_line1" onChange={inputChange('office_address_line1')} value={values.office_address_line1} />
+                      </div>
+                  </div>
+                  <div className="form-group row">
+                      <label htmlFor="office_address_line2" className="control-label col-sm-4">Address Line 2</label>
+                      <div class="col-sm-6">
+                        <input type="text" className="form-control" name="office_address_line2" onChange={inputChange('office_address_line2')} value={values.office_address_line2} />
+                      </div>
+                  </div>
+                  <div className="form-group row">
+                      <label htmlFor="po_box_number" className="control-label col-sm-4">PO Box Number</label>
+                      <div class="col-sm-6">
+                        <input type="text" className="form-control" name="po_box_number" onChange={inputChange('po_box_number')} value={values.po_box_number} />
+                      </div>
+                  </div>
+                </form>
 
                 <br />
-                 <div className="row">
-                    <div className="col-6 text-right">
+
                         <button className="btn btn-primary" onClick={this.continue}>Next</button>
-                    </div>
-                 </div>
+
+
             </div>
         )
     }
