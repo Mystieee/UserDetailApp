@@ -91,13 +91,13 @@ export class OfficeInfo extends Component {
                           <p key={err} className="error-message" >{err}</p>
                     ))}
                   <div className="form-group row">
-                      <label htmlFor="building_name" className="control-label col-sm-4">Building Name</label>
+                      <label htmlFor="building_name" className="control-label col-sm-4">Building Name*</label>
                       <div class="col-sm-6">
                         <input type="text" className="form-control" name="building_name" onChange={inputChange('building_name')} value={values.building_name} />
                       </div>
                   </div>
                   <div className="form-group row">
-                      <label htmlFor="city" className="control-label col-sm-4">City/Area</label>
+                      <label htmlFor="city" className="control-label col-sm-4">City/Area*</label>
                       <div class="col-sm-6">
                         <input type="text" className="form-control" name="city" onChange={inputChange('city')} value={values.city} />
                       </div>
@@ -109,7 +109,7 @@ export class OfficeInfo extends Component {
                       </div>
                   </div>
                   <div className="form-group row">
-                      <label htmlFor="office_address_line1" className="control-label col-sm-4">Address Line 1</label>
+                      <label htmlFor="office_address_line1" className="control-label col-sm-4">Address Line 1*</label>
                       <div class="col-sm-6">
                          <input type="text" className="form-control" name="office_address_line1" onChange={inputChange('office_address_line1')} value={values.office_address_line1} />
                       </div>

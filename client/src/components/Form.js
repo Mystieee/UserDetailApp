@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Stepper } from 'react-form-stepper';
+import validator from 'validator';
 import PersonalInfo from './PersonalInfo';
 import OfficeInfo from './OfficeInfo';
 import ConfirmationPage from './ConfirmationPage';
@@ -61,15 +63,12 @@ export class Form extends Component {
 
         switch (name) {
                        case 'name':
-                       console.log('length of name field: ',value.length)
-                         errors.name =
-                           value.length < 5
-                             ? 'Name must be 5 characters long.'
+                         errors.name =  value.length < 5
+                             ? 'Name must be at least 5 characters long.'
                              : '';
                          break;
                        case 'email':
-                         errors.email =
-                          validEmailRegex.test(value)
+                         errors.email = validEmailRegex.test(value)
                              ? ''
                              : 'Please enter a valid email address.';
                          break;
@@ -135,9 +134,7 @@ export class Form extends Component {
                          break;
                      }
 
-        this.setState({errors, [name]: value}, ()=> {
-                                                   console.log(errors)
-                                               })
+        this.setState({errors, [name]: value})
 
         this.setState({
             [input]: e.target.value
