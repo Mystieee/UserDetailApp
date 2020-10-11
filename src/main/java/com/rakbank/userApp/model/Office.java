@@ -12,8 +12,11 @@ public class Office {
     @Column(nullable = false)
     private String building_name;
 
+    @Column(nullable = false)
     private String city;
     private String landline_number;
+
+    @Column(nullable = false)
     private String office_address_line1;
     private String office_address_line2;
     private String po_box_number;

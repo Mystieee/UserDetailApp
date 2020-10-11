@@ -12,6 +12,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -59,17 +60,11 @@ public class PersonController {
             person.setAddress_line1(personDTO.getAddress_line1());
         }
 
-        if (personDTO.getAddress_line2() == null || personDTO.getAddress_line2().isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } else {
-            person.setAddress_line2(personDTO.getAddress_line2());
-        }
+        person.setAddress_line2(personDTO.getAddress_line2());
 
-        if (personDTO.getAddress_line3() == null || personDTO.getAddress_line3().isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } else {
-            person.setAddress_line3(personDTO.getAddress_line3());
-        }
+
+        person.setAddress_line3(personDTO.getAddress_line3());
+
 
         personRepository.save(person);
 
@@ -80,4 +75,57 @@ public class PersonController {
 
         return new ResponseEntity(person, responseHeaders, HttpStatus.CREATED);
     }
+
+    @PutMapping("/updatePerson/{id}")
+    public ResponseEntity<Person> updatePerson(
+            @PathVariable("id") Long id,
+            @RequestBody() PersonDTO personDTO
+    ) {
+        if (id == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        Optional<Person> person = personRepository.findById(id);
+
+        if (person.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        Person originalPerson = person.get();
+
+        if (personDTO.getName() != null && !personDTO.getName().isEmpty()) {
+            originalPerson.setName(personDTO.getName());
+        }
+        if (personDTO.getEmail() != null && !personDTO.getEmail().isEmpty()) {
+            originalPerson.setEmail(personDTO.getEmail());
+        }
+        if (personDTO.getMobile_number() != null && !personDTO.getMobile_number().isEmpty()) {
+            originalPerson.setMobile_number(personDTO.getMobile_number());
+        }
+        if (personDTO.getAddress_line1() != null && !personDTO.getAddress_line1().isEmpty()) {
+            originalPerson.setAddress_line1(personDTO.getAddress_line1());
+        }
+        if (personDTO.getAddress_line2() != null && !personDTO.getAddress_line2().isEmpty()) {
+            originalPerson.setAddress_line2(personDTO.getAddress_line2());
+        }
+        if (personDTO.getAddress_line3() != null && !personDTO.getAddress_line3().isEmpty()) {
+            originalPerson.setAddress_line3(personDTO.getAddress_line3());
+        }
+
+        personRepository.save(originalPerson);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }

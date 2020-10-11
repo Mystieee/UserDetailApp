@@ -2,6 +2,8 @@ package com.rakbank.userApp.controller;
 
 import com.rakbank.userApp.model.Office;
 import com.rakbank.userApp.model.OfficeDTO;
+import com.rakbank.userApp.model.Person;
+import com.rakbank.userApp.model.PersonDTO;
 import com.rakbank.userApp.repository.OfficeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -47,11 +50,7 @@ public class OfficeController {
             office.setCity(officeDTO.getCity());
         }
 
-        if (officeDTO.getLandline_number() == null || officeDTO.getLandline_number().isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } else {
-            office.setLandline_number(officeDTO.getLandline_number());
-        }
+        office.setLandline_number(officeDTO.getLandline_number());
 
         if (officeDTO.getOffice_address_line1() == null || officeDTO.getOffice_address_line1().isEmpty()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -59,17 +58,9 @@ public class OfficeController {
             office.setOffice_address_line1(officeDTO.getOffice_address_line1());
         }
 
-        if (officeDTO.getOffice_address_line2() == null || officeDTO.getOffice_address_line2().isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } else {
-            office.setOffice_address_line2(officeDTO.getOffice_address_line2());
-        }
+        office.setOffice_address_line2(officeDTO.getOffice_address_line2());
 
-        if (officeDTO.getPo_box_number() == null || officeDTO.getPo_box_number().isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        } else {
-            office.setPo_box_number(officeDTO.getPo_box_number());
-        }
+        office.setPo_box_number(officeDTO.getPo_box_number());
 
         officeRepository.save(office);
 
@@ -80,4 +71,46 @@ public class OfficeController {
 
         return new ResponseEntity(office, responseHeaders, HttpStatus.CREATED);
     }
+
+    @PutMapping("/updateOffice/{id}")
+    public ResponseEntity<Person> updateOffice(
+            @PathVariable("id") Long id,
+            @RequestBody() OfficeDTO officeDTO
+    ) {
+        if (id == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        Optional<Office> office = officeRepository.findById(id);
+
+        if (office.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        Office originalOffice = office.get();
+
+        if (officeDTO.getBuilding_name() != null && !officeDTO.getBuilding_name().isEmpty()) {
+            originalOffice.setBuilding_name(officeDTO.getBuilding_name());
+        }
+        if (officeDTO.getCity() != null && !officeDTO.getCity().isEmpty()) {
+            originalOffice.setCity(officeDTO.getCity());
+        }
+        if (officeDTO.getLandline_number() != null && !officeDTO.getLandline_number().isEmpty()) {
+            originalOffice.setLandline_number(officeDTO.getLandline_number());
+        }
+        if (officeDTO.getOffice_address_line1() != null && !officeDTO.getOffice_address_line1().isEmpty()) {
+            originalOffice.setOffice_address_line1(officeDTO.getOffice_address_line1());
+        }
+        if (officeDTO.getOffice_address_line2() != null && !officeDTO.getOffice_address_line2().isEmpty()) {
+            originalOffice.setOffice_address_line2(officeDTO.getOffice_address_line2());
+        }
+        if (officeDTO.getPo_box_number() != null && !officeDTO.getPo_box_number().isEmpty()) {
+            originalOffice.setPo_box_number(officeDTO.getPo_box_number());
+        }
+
+        officeRepository.save(originalOffice);
+
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }
