@@ -130,7 +130,15 @@ export class OfficeInfo extends Component {
 
                 <br />
 
-                        <button className="btn btn-primary" onClick={this.continue}>Next</button>
+                        <div className="row">
+                            <div className="col-4">
+                                <button className="btn btn-secondary" onClick={this.back}>Back</button>
+                            </div>
+                            <div className="col-4 text-right">
+                                <button className="btn btn-primary" onClick={this.continue}>Next</button>
+                            </div>
+                        </div>
+
 
 
             </div>
