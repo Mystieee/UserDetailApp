@@ -1,12 +1,25 @@
-
 .App {
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
   flex-direction: column;
-  background: #87CEFA;  /* fallback for old browsers */
-  }
+}
+.user {
+  position: relative;
+  width: fit-content;
+  top: 30px;
+  right: 30px;
+  background: blueviolet;
+}
+
+.pageName {
+  position: relative;
+  left: -20%;
+  color: white;
+  font-size: 30px;
+  font-family: Arial;
+}
 
 .form-container {
   background: #fff;
@@ -14,43 +27,39 @@
   padding: 30px;
   max-width: 1000px;
   margin: 0 auto;
-  box-shadow: 0 15px 16px .17px rgba(0,0,0,0.05);
+  box-shadow: 0 15px 16px 0.17px rgba(0, 0, 0, 0.05);
 }
 
-.form-horizontal{
-    border-style: dotted;
-    border-radius: 25px;
-    padding: 30px;
-    border-color : #C0C0C0;
+.form-horizontal {
+  border-style: dotted;
+  border-radius: 25px;
+  padding: 30px;
+  border-color: #c0c0c0;
 }
 
 h1 {
   text-align: center;
 }
 
-.error-message{
-    color:red;
+.error-message {
+  color: red;
 }
 
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
+  align-items: stretch;
+}
 
+.flex-item {
+  width: 100px;
+  flex-grow: 1;
+  text-align: justify;
+}
 
-
-      #flex-container {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          width: 100%;
-          margin: 0 auto;
-          align-items: stretch;
-      }
-
-      .flex-item {
-          width: 100px;
-          flex-grow: 1;
-           text-align: justify;
-      }
-
-
-      ul {
-        list-style-type: none;
-      }
+ul {
+  list-style-type: none;
+}
