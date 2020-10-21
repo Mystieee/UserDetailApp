@@ -95,34 +95,44 @@ export class ConfirmationPage extends Component {
 
     return (
       <div className="form-container">
-        <h1 className="mb-5">Confirmation Page</h1>
-
-        <form className="form-horizontal">
+        <form className="form-horizontal ">
           <div id="flex-container">
             <div class="flex-item">
               <ul class="list-group">
-                <li class="list-group-item">Name: {name}</li>
-                <li class="list-group-item">Email: {email}</li>
-                <li class="list-group-item">Mobile Number: {mobile_number}</li>
-                <li class="list-group-item">Address Line 1: {address_line1}</li>
-                <li class="list-group-item">Address Line 2: {address_line2}</li>
-                <li class="list-group-item">Address Line 3: {address_line3}</li>
+                <li className="list-group-item border-0">Name: {name}</li>
+                <li className="list-group-item border-0">Email: {email}</li>
+                <li class="list-group-item border-0">
+                  Mobile Number: {mobile_number}
+                </li>
+                <li class="list-group-item border-0">
+                  Address Line 1: {address_line1}
+                </li>
+                <li class="list-group-item border-0">
+                  Address Line 2: {address_line2}
+                </li>
+                <li class="list-group-item border-0">
+                  Address Line 3: {address_line3}
+                </li>
               </ul>
             </div>
             <div class="flex-item">
               <ul class="list-group">
-                <li class="list-group-item">Building Name: {building_name}</li>
-                <li class="list-group-item">City/Area: {city}</li>
-                <li class="list-group-item">
+                <li class="list-group-item border-0">
+                  Building Name: {building_name}
+                </li>
+                <li class="list-group-item border-0">City/Area: {city}</li>
+                <li class="list-group-item border-0">
                   Landline Number: {landline_number}
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item border-0">
                   Address Line 1: {office_address_line1}
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item border-0">
                   Address Line 2: {office_address_line2}
                 </li>
-                <li class="list-group-item">PO Box Number: {po_box_number}</li>
+                <li class="list-group-item border-0">
+                  PO Box Number: {po_box_number}
+                </li>
               </ul>
             </div>
             <div class="flex-item">
@@ -134,21 +144,20 @@ export class ConfirmationPage extends Component {
               <Signature />
             </div>
           </div>
+          <br />
+          <div className="row">
+            <div className="col-4">
+              <button className="btn btn-secondary" onClick={this.back}>
+                Back
+              </button>
+            </div>
+            <div className="col-4 text-right">
+              <button className="btn btn-danger" onClick={this.continue}>
+                Submit
+              </button>
+            </div>
+          </div>
         </form>
-
-        <br />
-        <div className="row">
-          <div className="col-4">
-            <button className="btn btn-secondary" onClick={this.back}>
-              Back
-            </button>
-          </div>
-          <div className="col-4 text-right">
-            <button className="btn btn-danger" onClick={this.continue}>
-              Submit
-            </button>
-          </div>
-        </div>
       </div>
     );
   }

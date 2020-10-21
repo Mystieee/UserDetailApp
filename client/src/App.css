@@ -13,17 +13,23 @@
   background: blueviolet;
 }
 
+.topnav {
+  background: white;
+  margin: 0 auto;
+  box-shadow: 0 15px 16px 0.17px rgba(0, 0, 0, 0.05);
+  max-width: 1000px;
+}
 .pageName {
   position: relative;
   left: -20%;
-  color: white;
-  font-size: 30px;
+  color: whitesmoke;
+  font-size: 40px;
   font-family: Arial;
+  font-weight: normal;
 }
 
 .form-container {
-  background: #fff;
-  border-radius: 20px;
+  background: #f3f3f3;
   padding: 30px;
   max-width: 1000px;
   margin: 0 auto;
@@ -31,6 +37,7 @@
 }
 
 .form-horizontal {
+  background: white;
   border-style: dotted;
   border-radius: 25px;
   padding: 30px;
