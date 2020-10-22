@@ -114,6 +114,9 @@ export class OfficeInfo extends Component {
     this.props.prevStep();
   };
 
+  componentDidMount() {
+    this.props.officeInfoPage();
+  }
   render() {
     const { values, inputChange, errors } = this.props;
 

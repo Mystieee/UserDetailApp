@@ -19,9 +19,21 @@
   box-shadow: 0 15px 16px 0.17px rgba(0, 0, 0, 0.05);
   max-width: 1000px;
 }
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+}
+.imageContainer {
+  position: relative;
+  text-align: center;
+  color: white;
+  float: right;
+}
 .pageName {
   position: relative;
-  left: -20%;
+  left: 10%;
   color: whitesmoke;
   font-size: 40px;
   font-family: Arial;

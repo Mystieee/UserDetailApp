@@ -72,6 +72,9 @@ export class ConfirmationPage extends Component {
     e.preventDefault();
     this.props.prevStep();
   };
+  componentDidMount() {
+    this.props.confirmationPage();
+  }
 
   render() {
     const {

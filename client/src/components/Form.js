@@ -7,6 +7,7 @@ import CourseComponenet from "./CourseComponent";
 import OfficeInfo from "./OfficeInfo";
 import ConfirmationPage from "./ConfirmationPage";
 import RegistrationSuccess from "./RegistrationSuccess";
+import menu from "../images/menu.png";
 
 const validNumberRegex = RegExp("^[0-9]+$");
 const validEmailRegex = RegExp("^[a-zA-Z0-9.]+@[a-zA-Z0-9]+.(w*com\\w*)$");
@@ -26,7 +27,8 @@ export class Form extends Component {
     office_address_line1: "",
     office_address_line2: "",
     po_box_number: "",
-
+    page: "",
+    pageTitle: "",
     errors: {
       name: "",
       email: "",
@@ -98,6 +100,22 @@ export class Form extends Component {
     });
   };
 
+  personalInfoPage = childData => {
+    this.setState({ page: "Personal Info", pageTitle: "Personal Info Page" });
+  };
+  officeInfoPage = childData => {
+    this.setState({ page: "Office Details", pageTitle: "Office Info Page" });
+  };
+
+  confirmationPage = childData => {
+    this.setState({
+      page: "Confirmation Page",
+      pageTitle: "Confirmation Page"
+    });
+  };
+  registrationPage = childData => {
+    this.setState({ pageTitle: "Registration Success" });
+  };
   inputChange = input => e => {
     const { name, value } = e.target;
     let errors = this.state.errors;
@@ -212,33 +230,60 @@ export class Form extends Component {
     return (
       <div>
         {/* <Stepper steps={steps} activeStep={step} /> */}
+
         <div className="wizard-wrapper">
-          <div className="topnav">
-            <nav class="bg-white h-25" role="navigation">
+          <div className="pageName">
+            <nav class="" role="navigation">
               <div class="row">
-                <div class="col s6 text-left">
-                  <p>Personal Info</p>
-                </div>
-                <div class="col s6 text-right">
-                  <p class="label">User</p>
+                <div class="col s12 text-left">
+                  <p>{this.state.pageTitle}</p>
                 </div>
               </div>
             </nav>
-            <Stepper
-              steps={steps}
-              activeStep={step}
-              activeColor="#ee1b25"
-              completeColor="#ee1b25"
-              defaultCircleFontColor="grey"
-              barStyle="solid"
-              defaultBarColor="#fee5e3"
-              completeBarColor="#ee1b25"
-              lineMarginOffset={3}
-              activeBorderStyle="solid"
-              activeBorderColor="White"
-              circleFontSize={14}
-            />
           </div>
+          {step === 3 ? (
+            ""
+          ) : (
+            <div className="topnav">
+              <nav class="bg-white h-25" role="navigation">
+                <div class="row">
+                  <div class="col s6 text-left">
+                    <p class="m-3">{this.state.page}</p>
+                  </div>
+                  <div class="col s6 text-right">
+                    {step === 0 ? (
+                      // <p class="label m-3 bg-red rounded">User</p>
+                      <div className="imageContainer">
+                        <img src={menu} alt="menu image" />
+                        <div class="centered">User</div>
+                      </div>
+                    ) : (
+                      // <p class="label m-3 bg-red rounded">{this.state.name}</p>
+                      <div className="imageContainer">
+                        <img src={menu} alt="menu image" />
+                        <div class="centered">{this.state.name}</div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </nav>
+
+              <Stepper
+                steps={steps}
+                activeStep={step}
+                activeColor="#ee1b25"
+                completeColor="#ee1b25"
+                defaultCircleFontColor="grey"
+                barStyle="solid"
+                defaultBarColor="#fee5e3"
+                completeBarColor="#ee1b25"
+                lineMarginOffset={3}
+                activeBorderStyle="solid"
+                activeBorderColor="White"
+                circleFontSize={14}
+              />
+            </div>
+          )}
           {step === 0 && (
             <PersonalInfo
               nextStep={this.nextStep}
@@ -246,6 +291,7 @@ export class Form extends Component {
               values={values}
               errors={this.state.errors}
               {...this.props}
+              personalInfoPage={this.personalInfoPage}
             />
           )}
           {step === 1 && (
@@ -256,6 +302,7 @@ export class Form extends Component {
               values={values}
               errors={this.state.errors}
               {...this.props}
+              officeInfoPage={this.officeInfoPage}
             />
           )}
           {step === 2 && (
@@ -263,10 +310,14 @@ export class Form extends Component {
               nextStep={this.nextStep}
               prevStep={this.prevStep}
               values={values}
+              confirmationPage={this.confirmationPage}
             />
           )}
           {step === 3 && (
-            <RegistrationSuccess beginningStep={this.beginningStep} />
+            <RegistrationSuccess
+              beginningStep={this.beginningStep}
+              registrationPage={this.registrationPage}
+            />
           )}
         </div>
       </div>

@@ -10,9 +10,7 @@ class App extends Component {
       <div className="App">
         <br />
         <br />
-        <div className="pageName">Personal Info Page</div>
         <br />
-
         <div className="container">
           <Form />
 

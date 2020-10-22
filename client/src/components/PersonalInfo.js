@@ -15,6 +15,9 @@ export class PersonalInfo extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.personalInfoPage();
+  }
   continue = e => {
     e.preventDefault();
     const errors_arr = [];
