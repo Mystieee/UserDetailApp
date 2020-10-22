@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import UserForm from "./components_new/UserForm";
-import ReactStepper from "./components_new/ReactStepper";
 
 class App extends Component {
   render() {
@@ -15,7 +14,6 @@ class App extends Component {
           <Form />
 
           {/* <UserForm /> */}
-          {/* <ReactStepper /> */}
         </div>
       </div>
     );

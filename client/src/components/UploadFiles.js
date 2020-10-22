@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import UploadFileService from "../service/UploadFileService.js";
+import folderimage from "../images/folder_btn.png";
+import cameraimage from "../images/camera.png";
 
 export default class UploadFiles extends Component {
   constructor(props) {
@@ -9,58 +11,61 @@ export default class UploadFiles extends Component {
     this.state = {
       selectedFiles: undefined,
       currentFile: undefined,
-      message:'',
-      progress: 0,
-
-      fileInfos: [],
+      message: "",
+      file: null,
+      fileInfos: []
     };
   }
 
   componentDidMount() {
-    UploadFileService.getFiles().then((response) => {
+    UploadFileService.getFiles().then(response => {
       this.setState({
-        fileInfos: response.data,
+        fileInfos: response.data
       });
     });
   }
 
   selectFile(event) {
-    console.log("file to be uploaded: ",event.target.files);
     this.setState({
       selectedFiles: event.target.files,
+      file: URL.createObjectURL(event.target.files[0])
     });
-    console.log("this.state.selectedFile", event.target.files);
-     this.props.onSelectFile(event.target.files);
-
+    this.props.onSelectFile(event.target.files);
   }
 
   render() {
-    const {
-      currentFile,
-      progress
-    } = this.state;
+    const { currentFile, progress } = this.state;
 
     return (
       <div className="form-horizontal">
-        {currentFile && (
-          <div className="progress">
-            <div
-              className="progress-bar progress-bar-info progress-bar-striped"
-              role="progressbar"
-              aria-valuenow={progress}
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style={{ width: progress + "%" }}
-            >
-              {progress}%
+        <div className="row">
+          <div className="col s6">
+            <img className="profilePicture" src={this.state.file} />
+          </div>
+          <div className="col s6">
+            <div className="row">
+              <label>
+                <img src={cameraimage} />
+              </label>
+            </div>
+            <div className="row">
+              {currentFile}
+              <div class="image-upload">
+                <label for="file-input">
+                  <img src={folderimage} />
+                </label>
+
+                <input
+                  id="file-input"
+                  type="file"
+                  accept="image/*"
+                  onChange={this.selectFile}
+                />
+              </div>
             </div>
           </div>
-        )}
-
-        <label className="btn btn-default">
-          <input type="file" onChange={this.selectFile} />
-        </label>
-    </div>
+        </div>
+      </div>
     );
   }
 }

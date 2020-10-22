@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Stepper from "react-stepper-horizontal";
-import validator from "validator";
 import PersonalInfo from "./PersonalInfo";
-import Personal_Info from "./Personal_Info";
-import CourseComponenet from "./CourseComponent";
 import OfficeInfo from "./OfficeInfo";
 import ConfirmationPage from "./ConfirmationPage";
 import RegistrationSuccess from "./RegistrationSuccess";
@@ -46,26 +43,23 @@ export class Form extends Component {
     steps: [
       {
         title: "Step 1",
-        href: "http://example1.com",
+        href: "",
         onClick: e => {
           e.preventDefault();
-          console.log("onClick", 1);
         }
       },
       {
         title: "Step 2",
-        href: "http://example2.com",
+        href: "",
         onClick: e => {
           e.preventDefault();
-          console.log("onClick", 2);
         }
       },
       {
         title: "Step 3",
-        href: "http://example3.com",
+        href: "",
         onClick: e => {
           e.preventDefault();
-          console.log("onClick", 3);
         }
       }
     ]
@@ -180,8 +174,6 @@ export class Form extends Component {
         break;
     }
 
-    console.log("Errors: ", errors);
-
     this.setState({ errors, [name]: value });
 
     this.setState({
@@ -229,8 +221,6 @@ export class Form extends Component {
     };
     return (
       <div>
-        {/* <Stepper steps={steps} activeStep={step} /> */}
-
         <div className="wizard-wrapper">
           <div className="pageName">
             <nav class="" role="navigation">
@@ -252,13 +242,11 @@ export class Form extends Component {
                   </div>
                   <div class="col s6 text-right">
                     {step === 0 ? (
-                      // <p class="label m-3 bg-red rounded">User</p>
                       <div className="imageContainer">
                         <img src={menu} alt="menu image" />
                         <div class="centered">User</div>
                       </div>
                     ) : (
-                      // <p class="label m-3 bg-red rounded">{this.state.name}</p>
                       <div className="imageContainer">
                         <img src={menu} alt="menu image" />
                         <div class="centered">{this.state.name}</div>
@@ -322,38 +310,6 @@ export class Form extends Component {
         </div>
       </div>
     );
-    // switch (step) {
-    //   case 1:
-    //     return (
-    //       <PersonalInfo
-    //         nextStep={this.nextStep}
-    //         prevStep={this.prevStep}
-    //         inputChange={this.inputChange}
-    //         values={values}
-    //         errors={this.state.errors}
-    //       />
-    //     );
-    //   case 2:
-    //     return (
-    //       <OfficeInfo
-    //         nextStep={this.nextStep}
-    //         prevStep={this.prevStep}
-    //         inputChange={this.inputChange}
-    //         values={values}
-    //         errors={this.state.errors}
-    //       />
-    //     );
-    //   case 3:
-    //     return (
-    //       <ConfirmationPage
-    //         nextStep={this.nextStep}
-    //         prevStep={this.prevStep}
-    //         values={values}
-    //       />
-    //     );
-    //   case 4:
-    //     return <RegistrationSuccess beginningStep={this.beginningStep} />;
-    // }
   }
 }
 

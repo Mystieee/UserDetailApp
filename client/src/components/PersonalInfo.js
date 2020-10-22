@@ -23,8 +23,6 @@ export class PersonalInfo extends Component {
     const errors_arr = [];
 
     if (validateForm(this.props.errors)) {
-      console.info("Valid Personal Info Form");
-
       this.setState({ errors_arr });
       const {
         name,
@@ -43,7 +41,6 @@ export class PersonalInfo extends Component {
         address_line3
       };
 
-      console.log("User Data: ", userData);
       let errors = this.state.errors;
 
       if (name == "") {
@@ -55,7 +52,6 @@ export class PersonalInfo extends Component {
       } else if (address_line1 == "") {
         errors_arr.push("Enter Address line 1");
       } else {
-        //everything is fine.
         PersonService.addPersonInfo(userData)
           .then(response => {
             response.json().then(data => {
@@ -70,19 +66,6 @@ export class PersonalInfo extends Component {
 
         this.props.nextStep();
       }
-
-      // PersonService.addPersonInfo(userData)
-      //   .then(response => {
-      //     response.json().then(data => {
-      //       console.log("Successful" + data);
-      //     });
-      //   })
-      //   .catch(error => {
-      //     if (error.response) {
-      //       console.log("error -->", error.response);
-      //     }
-      //   });
-      // this.props.nextStep();
     } else {
       console.error("Invalid Personal Info Form", this.props.errors);
 
@@ -116,19 +99,6 @@ export class PersonalInfo extends Component {
 
     return (
       <div>
-        {/* first div */}
-
-        {/* <nav class="bg-white h-25" role="navigation">
-          <div class="row">
-            <div class="col s6 text-left">
-              <p>Personal Info</p>
-            </div>
-            <div class="col s6 text-right">
-              <p class="label">User</p>
-            </div>
-          </div>
-        </nav> */}
-
         <div class="row">
           <div class="col s12 yellow ">
             <div className="form-container">
@@ -236,7 +206,7 @@ export class PersonalInfo extends Component {
                   </div>
                 </div>
                 <br />
-                <button className="btn btn-primary" onClick={this.continue}>
+                <button className="btn btn-danger" onClick={this.continue}>
                   Next
                 </button>
               </form>

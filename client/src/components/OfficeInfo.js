@@ -41,7 +41,6 @@ export class OfficeInfo extends Component {
         po_box_number
       };
 
-      console.log("officeData: ", officeData);
       let errors = this.state.errors;
 
       if (building_name == "") {
@@ -53,7 +52,6 @@ export class OfficeInfo extends Component {
       } else if (office_address_line1 == "") {
         errors_arr.push("Enter Address line 1");
       } else {
-        //everything is fine.
         OfficeService.addOfficeInfo(officeData)
           .then(response => {
             response.json().then(data => {
@@ -68,19 +66,6 @@ export class OfficeInfo extends Component {
 
         this.props.nextStep();
       }
-
-      //   OfficeService.addOfficeInfo(officeData)
-      //     .then(response => {
-      //       response.json().then(data => {
-      //         console.log("Successful" + data);
-      //       });
-      //     })
-      //     .catch(error => {
-      //       if (error.response) {
-      //         console.log("error -->", error.response);
-      //       }
-      //     });
-      //   this.props.nextStep();
     } else {
       console.error("Invalid Office Info Form");
 
@@ -226,7 +211,7 @@ export class OfficeInfo extends Component {
               </button>
             </div>
             <div className="col-4 text-right">
-              <button className="btn btn-primary" onClick={this.continue}>
+              <button className="btn btn-danger" onClick={this.continue}>
                 Next
               </button>
             </div>
