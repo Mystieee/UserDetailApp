@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import UploadFileService from "../service/UploadFileService.js";
 import folderimage from "../images/folder_btn.png";
-import cameraimage from "../images/camera.png";
+import ClickCameraPicture from "./ClickCameraPicture.js";
 
 export default class UploadFiles extends Component {
   constructor(props) {
@@ -34,24 +34,22 @@ export default class UploadFiles extends Component {
   }
 
   render() {
-    const { currentFile, progress } = this.state;
+    const { currentFile } = this.state;
 
     return (
       <div className="form-horizontal">
         <div className="row">
           <div className="col s6">
-            <img className="profilePicture" src={this.state.file} />
+            <img className="profilePicture" alt="" src={this.state.file} />
           </div>
           <div className="col s6">
             <div className="row">
-              <label>
-                <img src={cameraimage} />
-              </label>
+              <ClickCameraPicture />
             </div>
             <div className="row">
               {currentFile}
               <div class="image-upload">
-                <label for="file-input">
+                <label htmlFor="file-input">
                   <img src={folderimage} />
                 </label>
 

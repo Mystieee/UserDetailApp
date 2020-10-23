@@ -13,7 +13,7 @@ export class RegistrationSuccess extends Component {
     return (
       <div className="form-container">
         <div className="form-horizontal">
-          <img src={tick} alt="tick image" />
+          <img src={tick} alt="tick" />
           <h1>Success </h1>
           <br />
           <h3>Your application has been submitted.</h3>

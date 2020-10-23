@@ -126,7 +126,7 @@ export class Form extends Component {
         break;
       case "mobile_number":
         errors.mobile_number =
-          validNumberRegex.test(value) && value.length == 10
+          validNumberRegex.test(value) && value.length === 10
             ? ""
             : "Mobile Number should be 10 digits.";
         break;
@@ -151,7 +151,7 @@ export class Form extends Component {
         break;
       case "landline_number":
         errors.landline_number =
-          validNumberRegex.test(value) && value.length == 8
+          validNumberRegex.test(value) && value.length === 8
             ? ""
             : "Landline Number should be 8 digits.";
         break;
@@ -165,7 +165,7 @@ export class Form extends Component {
         break;
       case "po_box_number":
         errors.po_box_number =
-          validNumberRegex.test(value) && value.length == 5
+          validNumberRegex.test(value) && value.length === 5
             ? ""
             : "Enter valid PO Box Number.";
         break;
@@ -211,14 +211,7 @@ export class Form extends Component {
       office_address_line2,
       po_box_number
     };
-    const buttonStyle = {
-      background: "#E0E0E0",
-      width: 200,
-      padding: 16,
-      textAlign: "center",
-      margin: "0 auto",
-      marginTop: 32
-    };
+
     return (
       <div>
         <div className="wizard-wrapper">
@@ -243,12 +236,12 @@ export class Form extends Component {
                   <div class="col s6 text-right">
                     {step === 0 ? (
                       <div className="imageContainer">
-                        <img src={menu} alt="menu image" />
+                        <img src={menu} alt="menu" />
                         <div class="centered">User</div>
                       </div>
                     ) : (
                       <div className="imageContainer">
-                        <img src={menu} alt="menu image" />
+                        <img src={menu} alt="menu" />
                         <div class="centered">{this.state.name}</div>
                       </div>
                     )}

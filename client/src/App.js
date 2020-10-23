@@ -11,9 +11,9 @@ class App extends Component {
         <br />
         <br />
         <div className="container">
-          <Form />
+          {/* <Form /> */}
 
-          {/* <UserForm /> */}
+          <UserForm />
         </div>
       </div>
     );

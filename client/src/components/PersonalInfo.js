@@ -41,15 +41,13 @@ export class PersonalInfo extends Component {
         address_line3
       };
 
-      let errors = this.state.errors;
-
-      if (name == "") {
+      if (name === "") {
         errors_arr.push("Enter a Name");
-      } else if (email == "") {
+      } else if (email === "") {
         errors_arr.push("Enter Email");
-      } else if (mobile_number == "") {
+      } else if (mobile_number === "") {
         errors_arr.push("Enter Mobile number");
-      } else if (address_line1 == "") {
+      } else if (address_line1 === "") {
         errors_arr.push("Enter Address line 1");
       } else {
         PersonService.addPersonInfo(userData)
@@ -111,7 +109,7 @@ export class PersonalInfo extends Component {
 
                 <div className="form-group row">
                   <label htmlFor="name" className="control-label col-sm-4">
-                    Name*
+                    Name
                   </label>
                   <div className="col-sm-6">
                     <input
@@ -125,7 +123,7 @@ export class PersonalInfo extends Component {
                 </div>
                 <div className="form-group row">
                   <label htmlFor="email" className="control-label col-sm-4">
-                    Email*
+                    Email
                   </label>
                   <div className="col-sm-6">
                     <input
@@ -142,7 +140,7 @@ export class PersonalInfo extends Component {
                     htmlFor="mobile_number"
                     className="control-label col-sm-4"
                   >
-                    Mobile Number*
+                    Mobile Number
                   </label>
                   <div className="col-sm-6">
                     <input
@@ -159,7 +157,7 @@ export class PersonalInfo extends Component {
                     htmlFor="address_line1"
                     className="control-label col-sm-4"
                   >
-                    Address Line1*
+                    Address Line1
                   </label>
                   <div className="col-sm-6">
                     <input

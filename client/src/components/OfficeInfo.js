@@ -40,16 +40,13 @@ export class OfficeInfo extends Component {
         office_address_line2,
         po_box_number
       };
-
-      let errors = this.state.errors;
-
-      if (building_name == "") {
+      if (building_name === "") {
         errors_arr.push("Enter Building Name");
-      } else if (city == "") {
+      } else if (city === "") {
         errors_arr.push("Enter City");
-      } else if (landline_number == "") {
+      } else if (landline_number === "") {
         errors_arr.push("Enter Landline Number");
-      } else if (office_address_line1 == "") {
+      } else if (office_address_line1 === "") {
         errors_arr.push("Enter Address line 1");
       } else {
         OfficeService.addOfficeInfo(officeData)
@@ -115,7 +112,7 @@ export class OfficeInfo extends Component {
           ))}
           <div className="form-group row">
             <label htmlFor="building_name" className="control-label col-sm-4">
-              Building Name*
+              Building Name
             </label>
             <div class="col-sm-6">
               <input
@@ -129,7 +126,7 @@ export class OfficeInfo extends Component {
           </div>
           <div className="form-group row">
             <label htmlFor="city" className="control-label col-sm-4">
-              City/Area*
+              City/Area
             </label>
             <div class="col-sm-6">
               <input
@@ -160,7 +157,7 @@ export class OfficeInfo extends Component {
               htmlFor="office_address_line1"
               className="control-label col-sm-4"
             >
-              Address Line 1*
+              Address Line 1
             </label>
             <div class="col-sm-6">
               <input
