@@ -3,7 +3,6 @@ package com.rakbank.userApp.controller;
 import com.rakbank.userApp.model.Office;
 import com.rakbank.userApp.model.OfficeDTO;
 import com.rakbank.userApp.model.Person;
-import com.rakbank.userApp.model.PersonDTO;
 import com.rakbank.userApp.repository.OfficeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
