@@ -24,8 +24,6 @@ public class FilesController {
     @Autowired
     FilesRepository filesRepository;
 
-
-
     @GetMapping("/files/{id}")
     public ResponseEntity<byte[]> getFileById(@PathVariable(required = true) long id) {
 
@@ -59,20 +57,13 @@ public class FilesController {
     @PostMapping("/upload")
     public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
 
-        System.out.println("Coming inside FileController.."+ file);
         String message = "";
         try {
             String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 
-            System.out.println("filename: "+ fileName);
             Files FileDB = new Files(fileName, file.getContentType(), file.getBytes());
 
-            System.out.println("FileDB: "+ FileDB);
-
             filesRepository.save(FileDB);
-
-            System.out.println("Saved File!");
-
             message = "Uploaded the file successfully: " + file.getOriginalFilename();
             return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
         } catch (Exception e) {

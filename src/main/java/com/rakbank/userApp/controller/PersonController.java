@@ -35,36 +35,28 @@ public class PersonController {
             Long id = personRepository.count() + 1;
             person.setId(id);
         }
-
         if (personDTO.getName() == null || personDTO.getName().isEmpty()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
             person.setName(personDTO.getName());
         }
-
         if (personDTO.getEmail() == null || personDTO.getEmail().isEmpty()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
             person.setEmail(personDTO.getEmail());
         }
-
         if (personDTO.getMobile_number() == null || personDTO.getMobile_number().isEmpty()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
             person.setMobile_number(personDTO.getMobile_number());
         }
-
         if (personDTO.getAddress_line1() == null || personDTO.getAddress_line1().isEmpty()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } else {
             person.setAddress_line1(personDTO.getAddress_line1());
         }
-
         person.setAddress_line2(personDTO.getAddress_line2());
-
-
         person.setAddress_line3(personDTO.getAddress_line3());
-
 
         personRepository.save(person);
 
@@ -111,7 +103,6 @@ public class PersonController {
         if (personDTO.getAddress_line3() != null && !personDTO.getAddress_line3().isEmpty()) {
             originalPerson.setAddress_line3(personDTO.getAddress_line3());
         }
-
         personRepository.save(originalPerson);
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
