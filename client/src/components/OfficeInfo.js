@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import OfficeService from "../service/OfficeService.js";
 
 const validateForm = errors => {
-  console.log("Object infor page:", errors);
-
   let valid = true;
   Object.values(errors).forEach(val => val.length > 0 && (valid = false));
   return valid;

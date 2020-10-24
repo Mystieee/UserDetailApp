@@ -6,12 +6,10 @@ import trimCanvas from "trim-canvas";
 function Signature() {
   const sigCanvas = useRef({});
   const getTrimmedCanvas = () => {
-    // copy the canvas
     let copy = document.createElement("canvas");
     copy.width = this._canvas.width;
     copy.height = this._canvas.height;
     copy.getContext("2d").drawImage(this._canvas, 0, 0);
-    // then trim it
     return trimCanvas(copy);
   };
   const uploadSignature = () => {

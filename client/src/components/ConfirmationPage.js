@@ -22,7 +22,6 @@ export class ConfirmationPage extends Component {
     //uploadProfile Picture..
     let currentFile;
     if (this.state.selectedFiles == null) {
-      console.log("-----No File Selected----");
       this.setState({
         message: "Please select a file.",
         currentFile: undefined
@@ -31,13 +30,10 @@ export class ConfirmationPage extends Component {
       currentFile = this.state.selectedFiles[0];
     }
 
-    console.log("current File: ", currentFile);
-
     this.setState({
       currentFile: currentFile
     });
 
-    console.log("Calling upload file service..");
     UploadFileService.uploadFile(currentFile)
       .then(response => {
         this.setState({
@@ -46,7 +42,6 @@ export class ConfirmationPage extends Component {
         return UploadFileService.getFiles();
       })
       .then(files => {
-        console.log("I am in fileInfos..");
         this.setState({
           fileInfos: files.data
         });
@@ -62,9 +57,6 @@ export class ConfirmationPage extends Component {
       selectedFiles: undefined
     });
 
-    //show a loading indicator..
-
-    //got to next page.. Registration success
     this.props.nextStep();
   };
 
