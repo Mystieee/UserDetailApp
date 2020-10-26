@@ -98,7 +98,7 @@ export class OfficeInfo extends Component {
     this.props.officeInfoPage();
   }
   render() {
-    const { values, inputChange, errors } = this.props;
+    const { values, inputChange } = this.props;
 
     return (
       <div className="form-container">

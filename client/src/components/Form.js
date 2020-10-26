@@ -216,9 +216,9 @@ export class Form extends Component {
       <div>
         <div className="wizard-wrapper">
           <div className="pageName">
-            <nav class="" role="navigation">
-              <div class="row">
-                <div class="col s12 text-left">
+            <nav className="" role="navigation">
+              <div className="row">
+                <div className="col s12 text-left">
                   <p>{this.state.pageTitle}</p>
                 </div>
               </div>
@@ -228,21 +228,21 @@ export class Form extends Component {
             ""
           ) : (
             <div className="topnav">
-              <nav class="bg-white h-25" role="navigation">
-                <div class="row">
-                  <div class="col s6 text-left">
-                    <p class="m-3">{this.state.page}</p>
+              <nav className="bg-white h-25" role="navigation">
+                <div className="row">
+                  <div className="col s6 text-left">
+                    <p className="m-3">{this.state.page}</p>
                   </div>
-                  <div class="col s6 text-right">
+                  <div className="col s6 text-right">
                     {step === 0 ? (
                       <div className="imageContainer">
                         <img src={menu} alt="menu" />
-                        <div class="centered">User</div>
+                        <div className="centered">User</div>
                       </div>
                     ) : (
                       <div className="imageContainer">
                         <img src={menu} alt="menu" />
-                        <div class="centered">{this.state.name}</div>
+                        <div className="centered">{this.state.name}</div>
                       </div>
                     )}
                   </div>

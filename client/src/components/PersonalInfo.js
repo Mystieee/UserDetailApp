@@ -93,12 +93,12 @@ export class PersonalInfo extends Component {
   };
 
   render() {
-    const { values, inputChange, errors } = this.props;
+    const { values, inputChange } = this.props;
 
     return (
       <div>
-        <div class="row">
-          <div class="col s12 yellow ">
+        <div className="row">
+          <div className="col s12 yellow ">
             <div className="form-container">
               <form className="form-horizontal">
                 {this.state.errors_arr.map(err => (
