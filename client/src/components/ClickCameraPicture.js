@@ -9,7 +9,6 @@ export default function ClickCameraPicture() {
   const [dataUri, setDataUri] = useState("");
   const [isCameraOpen, setIsCameraOpen] = useState(false);
   function handleTakePhotoAnimationDone(dataUri) {
-    console.log("takePhoto");
     setDataUri(dataUri);
     setIsCameraOpen(false);
   }
@@ -18,9 +17,9 @@ export default function ClickCameraPicture() {
   return (
     <div>
       <div className="image-upload">
-        <a onClick={() => setIsCameraOpen(true)}>
+        <span onClick={() => setIsCameraOpen(true)}>
           <img src={cameraimage} alt="open camera" />
-        </a>
+        </span>
         {isCameraOpen && (
           <Camera
             onTakePhotoAnimationDone={handleTakePhotoAnimationDone}
