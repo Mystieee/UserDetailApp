@@ -112,7 +112,7 @@ export class OfficeInfo extends Component {
             <label htmlFor="building_name" className="control-label col-sm-4">
               Building Name
             </label>
-            <div class="col-sm-6">
+            <div className="col-sm-6">
               <input
                 type="text"
                 className="form-control"
@@ -126,7 +126,7 @@ export class OfficeInfo extends Component {
             <label htmlFor="city" className="control-label col-sm-4">
               City/Area
             </label>
-            <div class="col-sm-6">
+            <div className="col-sm-6">
               <input
                 type="text"
                 className="form-control"
@@ -140,7 +140,7 @@ export class OfficeInfo extends Component {
             <label htmlFor="landline_number" className="control-label col-sm-4">
               Landline Number
             </label>
-            <div class="col-sm-6">
+            <div className="col-sm-6">
               <input
                 type="text"
                 className="form-control"
@@ -157,7 +157,7 @@ export class OfficeInfo extends Component {
             >
               Address Line 1
             </label>
-            <div class="col-sm-6">
+            <div className="col-sm-6">
               <input
                 type="text"
                 className="form-control"
@@ -174,7 +174,7 @@ export class OfficeInfo extends Component {
             >
               Address Line 2
             </label>
-            <div class="col-sm-6">
+            <div className="col-sm-6">
               <input
                 type="text"
                 className="form-control"
@@ -188,7 +188,7 @@ export class OfficeInfo extends Component {
             <label htmlFor="po_box_number" className="control-label col-sm-4">
               PO Box Number
             </label>
-            <div class="col-sm-6">
+            <div className="col-sm-6">
               <input
                 type="text"
                 className="form-control"

@@ -18,7 +18,7 @@ export class RegistrationSuccess extends Component {
           <br />
           <h3>Your application has been submitted.</h3>
           <br />
-          <button class="btn btn-danger" onClick={this.newForm}>
+          <button className="btn btn-danger" onClick={this.newForm}>
             OK
           </button>
         </div>

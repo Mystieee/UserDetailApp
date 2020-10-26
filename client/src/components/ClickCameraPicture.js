@@ -17,7 +17,7 @@ export default function ClickCameraPicture() {
 
   return (
     <div>
-      <div class="image-upload">
+      <div className="image-upload">
         <a onClick={() => setIsCameraOpen(true)}>
           <img src={cameraimage} alt="open camera" />
         </a>

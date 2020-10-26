@@ -92,45 +92,45 @@ export class ConfirmationPage extends Component {
       <div className="form-container">
         <form className="form-horizontal ">
           <div id="flex-container">
-            <div class="flex-item">
-              <ul class="list-group">
+            <div className="flex-item">
+              <ul className="list-group">
                 <li className="list-group-item border-0">Name: {name}</li>
                 <li className="list-group-item border-0">Email: {email}</li>
-                <li class="list-group-item border-0">
+                <li className="list-group-item border-0">
                   Mobile Number: {mobile_number}
                 </li>
-                <li class="list-group-item border-0">
+                <li className="list-group-item border-0">
                   Address Line 1: {address_line1}
                 </li>
-                <li class="list-group-item border-0">
+                <li className="list-group-item border-0">
                   Address Line 2: {address_line2}
                 </li>
-                <li class="list-group-item border-0">
+                <li className="list-group-item border-0">
                   Address Line 3: {address_line3}
                 </li>
               </ul>
             </div>
-            <div class="flex-item">
-              <ul class="list-group">
-                <li class="list-group-item border-0">
+            <div className="flex-item">
+              <ul className="list-group">
+                <li className="list-group-item border-0">
                   Building Name: {building_name}
                 </li>
-                <li class="list-group-item border-0">City/Area: {city}</li>
-                <li class="list-group-item border-0">
+                <li className="list-group-item border-0">City/Area: {city}</li>
+                <li className="list-group-item border-0">
                   Landline Number: {landline_number}
                 </li>
-                <li class="list-group-item border-0">
+                <li className="list-group-item border-0">
                   Address Line 1: {office_address_line1}
                 </li>
-                <li class="list-group-item border-0">
+                <li className="list-group-item border-0">
                   Address Line 2: {office_address_line2}
                 </li>
-                <li class="list-group-item border-0">
+                <li className="list-group-item border-0">
                   PO Box Number: {po_box_number}
                 </li>
               </ul>
             </div>
-            <div class="flex-item">
+            <div className="flex-item">
               <UploadFiles onSelectFile={this.handleProfilePicture} />
               <div className="alert alert-light" role="alert">
                 {message}

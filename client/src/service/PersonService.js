@@ -3,7 +3,6 @@ const API_URL = "http://localhost:8080";
 
 class PersonService {
   addPersonInfo(person) {
-    console.log("Add person",person);
     return axios.post(`${API_URL}/api/addPerson/`, person);
   }
   updatePersonInfo(id, person) {

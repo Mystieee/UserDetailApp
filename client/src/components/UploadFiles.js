@@ -48,9 +48,9 @@ export default class UploadFiles extends Component {
             </div>
             <div className="row">
               {currentFile}
-              <div class="image-upload">
+              <div className="image-upload">
                 <label htmlFor="file-input">
-                  <img src={folderimage} />
+                  <img src={folderimage} alt="" />
                 </label>
 
                 <input
