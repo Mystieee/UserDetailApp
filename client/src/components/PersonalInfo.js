@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import LoadingSpinner from "../components/LoadingSpinner";
 import PersonService from "../service/PersonService.js";
 
 const validateForm = errors => {
@@ -11,7 +12,8 @@ export class PersonalInfo extends Component {
   constructor() {
     super();
     this.state = {
-      errors_arr: []
+      errors_arr: [],
+      loading: false
     };
   }
 
@@ -50,19 +52,26 @@ export class PersonalInfo extends Component {
       } else if (address_line1 === "") {
         errors_arr.push("Enter Address line 1");
       } else {
+        this.setState({ loading: true });
         PersonService.addPersonInfo(userData)
           .then(response => {
+            this.setState({
+              loading: false
+            });
             response.json().then(data => {
               console.log("Successful" + data);
             });
+            this.props.nextStep();
           })
           .catch(error => {
+            this.setState({
+              loading: false
+            });
             if (error.response) {
               console.log("error -->", error.response);
             }
+            this.props.nextStep();
           });
-
-        this.props.nextStep();
       }
     } else {
       console.error("Invalid Personal Info Form", this.props.errors);
@@ -208,6 +217,8 @@ export class PersonalInfo extends Component {
                   Next
                 </button>
               </form>
+
+              {this.state.loading ? <LoadingSpinner /> : ""}
             </div>
           </div>
         </div>
